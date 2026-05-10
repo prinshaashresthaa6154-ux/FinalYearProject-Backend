@@ -1,15 +1,14 @@
 package com.nepalyatra.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 
 public class UserDTO {
-    private int id;
+    private Long id;
     private String username;
     private String email;
     private String password;

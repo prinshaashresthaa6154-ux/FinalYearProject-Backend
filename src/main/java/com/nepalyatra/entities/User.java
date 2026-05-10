@@ -1,20 +1,19 @@
 package com.nepalyatra.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-@Data
+import lombok.*;
+
+
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Getter
+@Setter
 @Entity
-
 public class User {
     @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "user_id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private Long id;
 
 
     @Column(unique = true, nullable = false)
@@ -23,7 +22,6 @@ public class User {
     @Column(unique = true)
     private String email;
 
-    @Column(length = 10, nullable = false)
+    @Column(nullable = false)
     private String password;
-
 }
