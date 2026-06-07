@@ -9,7 +9,9 @@ public class Usermapper {
                 user.getId(),
                 user.getUsername(),
                 user.getEmail(),
-                user.getPassword()
+                user.getPassword(),
+                user.getRole(),
+                user.getAuthProvider()
         );
     }
 
@@ -18,7 +20,9 @@ public class Usermapper {
                 userDTO.getId(),
                 userDTO.getUsername(),
                 userDTO.getEmail(),
-                userDTO.getPassword()
+                userDTO.getPassword(),
+                userDTO.getRole(),
+                userDTO.getAuthProvider()
         );
     }
 }
