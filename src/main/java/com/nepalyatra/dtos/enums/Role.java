@@ -1,4 +1,4 @@
-package com.nepalyatra.dtos;
+package com.nepalyatra.dtos.enums;
 
 public enum Role {
     USER,

@@ -2,7 +2,6 @@ package com.nepalyatra.security;
 
 import com.nepalyatra.services.CustomUserDetailsService;
 import com.nepalyatra.services.JwtService;
-import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

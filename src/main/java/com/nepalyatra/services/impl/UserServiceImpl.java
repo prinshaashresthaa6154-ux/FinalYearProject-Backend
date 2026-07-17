@@ -3,7 +3,7 @@ package com.nepalyatra.services.impl;
 import com.nepalyatra.dtos.UserDTO;
 import com.nepalyatra.entities.User;
 import com.nepalyatra.exceptions.ResourceNotFoundException;
-import com.nepalyatra.mapper.Usermapper;
+import com.nepalyatra.mapper.UserMapper;
 import com.nepalyatra.repositories.UserRepository;
 import com.nepalyatra.services.UserService;
 import lombok.AllArgsConstructor;
@@ -20,16 +20,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO createuser(UserDTO userDTO) {
-        User user = Usermapper.toEntity(userDTO);
+        User user = UserMapper.toEntity(userDTO);
         User savedUser=  userRepository.save(user);
-        return Usermapper.toDTO(savedUser);
+        return UserMapper.toDTO(savedUser);
     }
 
     @Override
     public UserDTO getUserById(Long id) {
       User user = userRepository.findById(id).
               orElseThrow(() -> new ResourceNotFoundException("User Maru"));
-      return Usermapper.toDTO(user);
+      return UserMapper.toDTO(user);
 
 
 
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
        User updateUser = userRepository.save(user);
-       return Usermapper.toDTO(updateUser);
+       return UserMapper.toDTO(updateUser);
 
     }
 
@@ -57,6 +57,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDTO> getAllUser() {
         List <User> users = userRepository.findAll();
-        return users.stream().map (Usermapper::toDTO).collect(Collectors.toList());
+        return users.stream().map (UserMapper::toDTO).collect(Collectors.toList());
     }
 }

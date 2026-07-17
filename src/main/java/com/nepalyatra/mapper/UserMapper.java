@@ -3,7 +3,7 @@ package com.nepalyatra.mapper;
 import com.nepalyatra.dtos.UserDTO;
 import com.nepalyatra.entities.User;
 
-public class Usermapper {
+public class UserMapper {
     public static UserDTO toDTO(User user){
         return new UserDTO(
                 user.getId(),

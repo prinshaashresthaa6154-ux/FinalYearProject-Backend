@@ -22,10 +22,11 @@ public class JwtService {
         Map<String, Object> claims=new HashMap<>();
         claims.put("role", user.getRole().name());
         return Jwts.builder()
+                .claims(claims)
                 .subject(user.getEmail())
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis()+1000*60*60))
-                .signWith(key, SignatureAlgorithm.HS256)
+                .signWith(key)
                 .compact();
     }
 
@@ -37,17 +38,16 @@ public class JwtService {
                 .getPayload();
     }
 
-public String extractEmail (String token){
-        return extractClaims(token).getSubject();
-}
+    public String extractEmail (String token){
+            return extractClaims(token).getSubject();
+    }
 
-public boolean isTokenValid(String token){
-        try{
-            extractClaims(token);
-            return true;
-        } catch (Exception e){
-            return false;
-        }
-}
-
+    public boolean isTokenValid(String token){
+            try{
+                extractClaims(token);
+                return true;
+            } catch (Exception e){
+                return false;
+            }
+    }
 }

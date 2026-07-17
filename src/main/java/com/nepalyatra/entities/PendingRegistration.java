@@ -3,24 +3,24 @@ package com.nepalyatra.entities;
 import com.nepalyatra.dtos.enums.AuthProvider;
 import com.nepalyatra.dtos.enums.Role;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+import java.time.LocalDateTime;
+
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
+public class PendingRegistration {
 
-
-public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
     private Long id;
 
-
-    @Column(unique = true, nullable = false)
     private String username;
 
     @Column(unique = true)
@@ -33,4 +33,13 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private AuthProvider authProvider;
+
+    private String otp;
+
+    private LocalDateTime expiryTime;
+
+    @Builder.Default
+    private Integer attempts = 0;
+
+    private LocalDateTime resendAvailableAt;
 }

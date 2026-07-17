@@ -3,8 +3,7 @@ package com.nepalyatra.dtos;
 import lombok.Data;
 
 @Data
-public class LoginRequest {
+public class VerifyDTO {
     private String email;
-    private String password;
-
+    private String otp;
 }

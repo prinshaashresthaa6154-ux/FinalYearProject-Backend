@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5173")
 @AllArgsConstructor
 public class UserController {
 
@@ -25,26 +25,26 @@ public class UserController {
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
     @GetMapping("{id}")
-public ResponseEntity<UserDTO> getUserByTd(@PathVariable Long id){
-       UserDTO user = userService.getUserById(id);
-       return new ResponseEntity<>(user, HttpStatus.FOUND);
-}
+    public ResponseEntity<UserDTO> getUserByTd(@PathVariable Long id){
+           UserDTO user = userService.getUserById(id);
+           return new ResponseEntity<>(user, HttpStatus.FOUND);
+    }
 
-@PutMapping("{id}")
-public ResponseEntity<UserDTO>updateUser(@PathVariable long id, @RequestBody UserDTO userDTO){
-      UserDTO user =  userService.updateUser(id,userDTO);
-      return new ResponseEntity<>(user, HttpStatus.FOUND);
-}
-@DeleteMapping("{id}")
-public ResponseEntity<UserDTO>deleteUser(@PathVariable Long id){
-userService.deleteUser(id);
-return new ResponseEntity<>(HttpStatus.OK);
-}
+    @PutMapping("{id}")
+    public ResponseEntity<UserDTO>updateUser(@PathVariable long id, @RequestBody UserDTO userDTO){
+          UserDTO user =  userService.updateUser(id,userDTO);
+          return new ResponseEntity<>(user, HttpStatus.FOUND);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<UserDTO>deleteUser(@PathVariable Long id){
+    userService.deleteUser(id);
+    return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
-@GetMapping
-public ResponseEntity<List<UserDTO>> getAllUser(){
-     List<UserDTO> users = userService.getAllUser();
-     return new ResponseEntity<>(users, HttpStatus.OK);
-}
+    @GetMapping
+    public ResponseEntity<List<UserDTO>> getAllUser(){
+         List<UserDTO> users = userService.getAllUser();
+         return new ResponseEntity<>(users, HttpStatus.OK);
+    }
 }

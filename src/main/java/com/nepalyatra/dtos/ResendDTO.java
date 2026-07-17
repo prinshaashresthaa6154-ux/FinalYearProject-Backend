@@ -3,8 +3,6 @@ package com.nepalyatra.dtos;
 import lombok.Data;
 
 @Data
-public class LoginRequest {
+public class ResendDTO {
     private String email;
-    private String password;
-
 }
